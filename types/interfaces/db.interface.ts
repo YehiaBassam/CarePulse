@@ -39,7 +39,7 @@ export declare interface RegisterUserParams extends CreateUserParams {
   privacyConsent: boolean;
 }
 
-declare type CreateAppointmentParams = {
+export declare type CreateAppointmentParams = {
   userId: string;
   patient: string;
   primaryPhysician: string;
@@ -49,9 +49,10 @@ declare type CreateAppointmentParams = {
   note: string | undefined;
 };
 
-declare type UpdateAppointmentParams = {
+export declare type UpdateAppointmentParams = {
   appointmentId: string;
   userId: string;
   appointment: Appointment;
   type: string;
+  timeZone: string;
 };

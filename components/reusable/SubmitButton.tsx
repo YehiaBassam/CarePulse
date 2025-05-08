@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button';
 const SubmitButton = ({ isLoading, className, children, type }: SubmitButtonProps) => {
   return (
     <Button
-      type={type ?? "button"}
+      type={type ?? "submit"}
       disabled={isLoading}
       className={className ?? "shad-primary-btn w-full"}
     >

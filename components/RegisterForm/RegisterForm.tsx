@@ -44,14 +44,13 @@ const RegisterForm = ({ user }: { user: User }) => {
     const registerFormData = {
       ...values,
       userId: user.$id,
-      identificationDocument: formData ?? [],
+      identificationDocument: formData,
       birthDate: new Date(values.birthDate),
     };
 
     // @ts-ignore
     const patient = await registerPatient(registerFormData);
-    patient && router.push(`/patients/${user.$id}/user-appointment`);
-    console.log('patient', patient);
+    patient && router.push(`/patients/${user.$id}/new-appointment`);
     setIsLoading(false);
   };
 
@@ -239,7 +238,7 @@ const RegisterForm = ({ user }: { user: User }) => {
               control={form.control}
               name="currentMedication"
               label="Current medications"
-              placeholder="Ibuprofen 200mg, Levothyroxine 50mcg"
+              placeholder="Ibuprofen 200mg, propene 50mcg"
             />
           </div>
 
@@ -332,7 +331,7 @@ const RegisterForm = ({ user }: { user: User }) => {
           />
         </section>
 
-        <SubmitButton type="submit" isLoading={isLoading}>Submit and Continue</SubmitButton>
+        <SubmitButton isLoading={isLoading}>Submit and Continue</SubmitButton>
       </form>
     </Form>
   );

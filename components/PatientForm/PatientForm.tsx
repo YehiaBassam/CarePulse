@@ -74,7 +74,7 @@ export function PatientForm() {
           iconAlt="phone icon"
         />
 
-        <SubmitButton isLoading={isLoading} type="submit">Get Started</SubmitButton>
+        <SubmitButton isLoading={isLoading}>Get Started</SubmitButton>
       </form>
     </Form>
   );
