@@ -7,7 +7,7 @@ export declare type SearchParamProps = {
 };
 
 export declare type Gender = "male" | "female";
-export declare type Status = "pending" | "scheduled" | "cancelled";
+export declare type Status = "pending" | "schedule" | "cancel";
 
 export declare interface CreateUserParams {
   name: string;

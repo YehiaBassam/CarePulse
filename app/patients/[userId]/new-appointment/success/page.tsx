@@ -8,16 +8,12 @@ import { formatDateTime } from "@/lib/utils";
 import { SearchParamProps } from "@/types/interfaces/db.interface";
 
 const RequestSuccess = async ({ params: { userId }, searchParams }: SearchParamProps) => {
-  console.log(searchParams);
-
   const appointmentId = (searchParams?.appointmentId as string) || "";
   const appointment = await getAppointment(appointmentId);
 
   const doctor = Doctors.find(
     (doctor) => doctor.name === appointment.primaryPhysician
   );
-
-  console.log("appointment", appointment);
 
   return (
     <div className=" flex h-screen max-h-screen px-[5%]">

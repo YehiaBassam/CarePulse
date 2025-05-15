@@ -2,20 +2,24 @@ import * as React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { PatientForm } from "@/components/PatientForm/PatientForm";
+import { PasskeyModal } from "@/components/modals/PasskeyModal";
+import { SearchParamProps } from "@/types/interfaces/db.interface";
 
-function Home() {
+function Home({ searchParams }: SearchParamProps) {
+  const isAdmin = searchParams.admin;
+
   return (
     <div className="flex h-screen max-h-screen">
       <section className="remove-scrollbar container my-auto">
         <div className="sub-container max-w-[496px]">
-          {/* TODO:: Add otp verification form */}
+          {isAdmin && <PasskeyModal />}
 
           <Image
             src="/assets/icons/logo-full.svg"
             height={100}
-            width={100} 
+            width={100}
             alt="patient"
-          />  
+          />
 
           <PatientForm />
 

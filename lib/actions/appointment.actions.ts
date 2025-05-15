@@ -43,7 +43,7 @@ export const getRecentAppointmentList = async () => {
 
     // const scheduledAppointments = (
     //   appointments.documents as Appointment[]
-    // ).filter((appointment) => appointment.status === "scheduled");
+    // ).filter((appointment) => appointment.status === "schedule");
 
     // const pendingAppointments = (
     //   appointments.documents as Appointment[]
@@ -51,7 +51,7 @@ export const getRecentAppointmentList = async () => {
 
     // const cancelledAppointments = (
     //   appointments.documents as Appointment[]
-    // ).filter((appointment) => appointment.status === "cancelled");
+    // ).filter((appointment) => appointment.status === "cancel");
 
     // const data = {
     //   totalCount: appointments.total,
@@ -70,13 +70,13 @@ export const getRecentAppointmentList = async () => {
     const counts = (appointments.documents as Appointment[]).reduce(
       (acc, appointment) => {
         switch (appointment.status) {
-          case "scheduled":
+          case "schedule":
             acc.scheduledCount++;
             break;
           case "pending":
             acc.pendingCount++;
             break;
-          case "cancelled":
+          case "cancel":
             acc.cancelledCount++;
             break;
         }
@@ -135,8 +135,8 @@ export const updateAppointment = async ({
 
     if (!updatedAppointment) throw Error;
 
-    const smsMessage = `Greetings from CarePulse. ${type === "schedule" ? `Your appointment is confirmed for ${formatDateTime(appointment.schedule!, timeZone).dateTime} with Dr. ${appointment.primaryPhysician}` : `We regret to inform that your appointment for ${formatDateTime(appointment.schedule!, timeZone).dateTime} is cancelled. Reason:  ${appointment.cancellationReason}`}.`;
-    await sendSMSNotification(userId, smsMessage);
+    // const smsMessage = `Greetings from CarePulse. ${type === "schedule" ? `Your appointment is confirmed for ${formatDateTime(appointment.schedule!, timeZone).dateTime} with Dr. ${appointment.primaryPhysician}` : `We regret to inform that your appointment for ${formatDateTime(appointment.schedule!, timeZone).dateTime} is cancelled. Reason:  ${appointment.cancellationReason}`}.`;
+    // await sendSMSNotification(userId, smsMessage);
 
     revalidatePath("/admin");
     return parseStringify(updatedAppointment);
