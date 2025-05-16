@@ -1,36 +1,104 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# CarePulse - Healthcare Management System
 
-## Getting Started
+## Project Overview 
+CarePulse is a modern healthcare appointment management system built with Next.js. It provides a comprehensive solution for managing patient appointments, doctor schedules, and administrative tasks in a healthcare setting. 
 
-First, run the development server:
+## Features 
+- Patient appointment scheduling and management 
+- Doctor availability tracking 
+- Administrative dashboard 
+- Secure authentication with passkey protection 
+- Real-time appointment status updates 
+- SMS notifications for appointment confirmations and cancellations 
+- Responsive design for all devices 
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Technologies Used 
+- Frontend : Next.js, React, TypeScript, Tailwind CSS 
+- Backend : Appwrite (BaaS) 
+- Authentication : Custom passkey system 
+- UI Components : Shadcn UI components 
+- Data Fetching : Server Actions 
+- Styling : Tailwind CSS with custom utility classes 
+- Form Handling : React Hook Form 
+- Data Tables : TanStack Table 
+- Date/Time : React DatePicker 
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Getting Started 
+### Prerequisites 
+- Node.js (v18 or higher) 
+- npm or yarn 
+- Appwrite account 
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Installation 
+1. Clone the repository
+   ```bash
+   git clone https://github.com/yourusername/carepulse.git
+   cd carepulse
+   ```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+2. Install dependencies
+   ```bash
+   npm install
+   # or
+   yarn install
+   ```
 
-## Learn More
+3. Set up environment variables (see [Environment Variables](#environment-variables) section)
 
-To learn more about Next.js, take a look at the following resources:
+4. Run the development server
+   ```bash
+   npm run dev
+   # or
+   yarn dev
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+5. Open [http://localhost:3000](http://localhost:3000) with your browser to see the application
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Admin Access 
+To access the admin panel, navigate to /admin and enter the passkey when prompted. 
 
-## Deploy on Vercel
+**Admin Passkey: 123456** 
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Project Structure 
+- /app - Next.js app router pages and layouts 
+- /components - Reusable UI components 
+- /lib - Utility functions and API configurations 
+- /public - Static assets 
+- /types - TypeScript type definitions 
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Appwrite Setup 
+The project uses Appwrite as a backend service with the following collections: 
+
+- Patients 
+- Doctors 
+- Appointments 
+
+## Environment Variables 
+The application requires the following environment variables: 
+
+- PROJECT_ID - Appwrite project ID 
+- API_KEY - Appwrite API key 
+- DATABASE_ID - Appwrite database ID 
+- PATIENT_COLLECTION_ID - Appwrite collection ID for patients 
+- DOCTOR_COLLECTION_ID - Appwrite collection ID for doctors 
+- APPOINTMENT_COLLECTION_ID - Appwrite collection ID for appointments 
+- NEXT_PUBLIC_BUCKET_ID - Appwrite storage bucket ID 
+- NEXT_PUBLIC_ENDPOINT - Appwrite endpoint URL 
+- NEXT_PUBLIC_ADMIN_PASSKEY - Admin access passkey 
+
+## Deployment
+
+The application can be easily deployed on Vercel:
+
+1. Push your code to a GitHub repository
+2. Connect your repository to Vercel
+3. Configure environment variables in Vercel dashboard
+4. Deploy
+
+## License 
+MIT License 
+
+## Acknowledgements 
+- Shadcn UI for component library 
+- Appwrite for backend services 
+- Next.js team for the framework
