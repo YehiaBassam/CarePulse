@@ -36,9 +36,9 @@ export const AppointmentForm = ({
   setOpen?: Dispatch<SetStateAction<boolean>>;
 }) => {
   const router = useRouter();
-  const [isLoading, setIsLoading] = useState(false);  
+  const [isLoading, setIsLoading] = useState(false);
 
-  const AppointmentFormValidation = getAppointmentSchema(type);
+  const AppointmentFormValidation = getAppointmentSchema(type);  
 
   const form = useForm<z.infer<typeof AppointmentFormValidation>>({
     resolver: zodResolver(AppointmentFormValidation),
@@ -90,7 +90,7 @@ export const AppointmentForm = ({
             `/patients/${userId}/new-appointment/success?appointmentId=${newAppointment.$id}`
           );
         }
-      } else {        
+      } else {
         const appointmentToUpdate = {
           userId,
           appointmentId: appointment?.$id!,
@@ -184,7 +184,6 @@ export const AppointmentForm = ({
                 name="reason"
                 label="Appointment reason"
                 placeholder="Annual monthly check-up"
-                disabled={type === "schedule"}
               />
 
               <CustomFormField
@@ -193,7 +192,6 @@ export const AppointmentForm = ({
                 name="note"
                 label="Comments/notes"
                 placeholder="Prefer afternoon appointments, if possible"
-                disabled={type === "schedule"}
               />
             </div>
           </>

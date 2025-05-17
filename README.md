@@ -85,6 +85,8 @@ The application requires the following environment variables:
 - NEXT_PUBLIC_BUCKET_ID - Appwrite storage bucket ID 
 - NEXT_PUBLIC_ENDPOINT - Appwrite endpoint URL 
 - NEXT_PUBLIC_ADMIN_PASSKEY - Admin access passkey 
+- NEXT_PUBLIC_SENTRY_DSN - Sentry project DSN for error tracking
+- SENTRY_AUTH_TOKEN - Sentry Auth Token
 
 ## Deployment
 
@@ -98,7 +100,35 @@ The application can be easily deployed on Vercel:
 ## License 
 MIT License 
 
+## Error Tracking and Monitoring
+
+CarePulse uses Sentry for error tracking and performance monitoring:
+
+- Real-time error tracking and reporting
+- Performance monitoring for frontend and API calls
+- User session tracking for debugging user-specific issues
+- Custom error boundaries to prevent UI crashes
+- Environment-specific configuration (development/production)
+
+### Sentry Setup
+
+1. Add Sentry SDK to your project:
+   ```bash
+   npm install @sentry/nextjs
+   # or
+   yarn add @sentry/nextjs
+   ```
+
+2. Configure Sentry in your Next.js project:
+   - Create `sentry.client.config.js`, `sentry.server.config.js`, and `sentry.edge.config.js` files
+   - Add the Sentry initialization code with your DSN
+
+3. Add the required environment variables:
+   - NEXT_PUBLIC_SENTRY_DSN - Your Sentry project DSN
+   - SENTRY_ENVIRONMENT - Environment name (development, production)
+
 ## Acknowledgements 
 - Shadcn UI for component library 
 - Appwrite for backend services 
 - Next.js team for the framework
+- Sentry for error tracking and monitoring
